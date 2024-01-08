@@ -51,8 +51,10 @@ public class Student {
 	@JoinColumn(name="result_id")
 	private Result result;
 	//@OneToOne(cascade=CascadeType.ALL)
+	
 	@Embedded
 	private Address address;
+	
 	public int getStudentId() {
 		return studentId;
 	}
