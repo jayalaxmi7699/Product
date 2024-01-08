@@ -11,7 +11,7 @@ public class Optionall {
 		System.out.println("2. " + myopts.orElse("Hello Guys"));
 		System.out.println("3. " + myopts);
 		System.out.println("4. " + myopts.isPresent());
-		// System.out.println("5. "+myopts.get());
+		 System.out.println("5. "+myopts.isEmpty());
 		if (myopts.isPresent()) {
 			System.out.println("5. " + myopts.get());
 		} else {

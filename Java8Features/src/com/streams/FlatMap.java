@@ -12,6 +12,7 @@ public class FlatMap {
 		List<List<Integer>> mylist = Arrays.asList(list1, list2);
 		mylist.stream().forEach(System.out::println);
 		System.out.println("---------------------");
+		
 		mylist.stream().map(Collection::stream).forEach(System.out::println);
 		System.out.println("---------------------");
 		mylist.stream().map(Collection::stream).flatMap(input -> input).forEach(System.out::println);

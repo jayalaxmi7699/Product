@@ -9,6 +9,7 @@ public class Optional4 {
 
 		String str1 = "Srinivas";
 		Optional<String> myopts = Optional.ofNullable(str1);
+		
 		System.out.println("1. " + myopts);
 		System.out.println("2. " + myopts.orElse("Hello Guys"));
 		System.out.println("3. " + myopts.orElseGet(() -> "Ok Guys"));

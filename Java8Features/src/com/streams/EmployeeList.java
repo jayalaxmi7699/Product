@@ -9,6 +9,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+
 public class EmployeeList {
 	public static void main(String[] args) {
 
@@ -30,8 +31,12 @@ public class EmployeeList {
 		employeeList.add(new Employee(255, "Ali Baig", 23, "Male", "Infrastructure", 2018, 12700.0));
 		employeeList.add(new Employee(266, "Sanvi Pandey", 26, "Female", "Product Development", 2015, 28900.0));
 		employeeList.add(new Employee(277, "Anuj Chettiar", 31, "Male", "Product Development", 2012, 35700.0));
-
-		Map<String, Long> BasedGender = employeeList.stream()
+		
+		Map<String, Long> d=	employeeList.stream().filter(h->h.getDepartment()=="Security And Transport").collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
+		System.out.println("dept by gennder count : " +d);
+		employeeList.stream().max(Comparator.comparingDouble(Employee::getSalary));
+		
+		Map<String, Long> BasedGender = employeeList.stream().filter(k->k.getDepartment()=="Product Development")
 				.collect(Collectors.groupingBy(Employee::getDepartment, Collectors.counting()));
 		System.out.println(BasedGender);
 

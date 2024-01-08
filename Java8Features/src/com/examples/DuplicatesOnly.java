@@ -13,8 +13,8 @@ public class DuplicatesOnly {
 		
 		
 		Map<Integer, Long> occ= numbers.stream().collect(Collectors.groupingBy(j->j, Collectors.counting()));
-		
-		occ.entrySet().stream().filter(i->i.getValue()>1).forEach(i->System.out.println(i.getKey()+"--->"+i.getValue()));
+		System.out.println(occ);
+//		occ.entrySet().stream().filter(i->i.getValue()>1).forEach(i->System.out.println(i.getKey()+"--->"+i.getValue()));
 
 		
 		

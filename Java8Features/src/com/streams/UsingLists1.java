@@ -11,7 +11,10 @@ import java.util.stream.Collectors;
 public class UsingLists1 {
 	public static void main(String[] args) {
 		List<Integer> numList = Arrays.asList(11, 22, 33, 44, 55, 66, 77, 88, 99);
-
+		
+		
+	int f1=	numList.stream().filter(f->f%2!=0).reduce(0, Integer::sum);
+	System.out.println("ODD Numbers count "+f1);
 		Optional<Integer> mycourse1 = numList.stream().findAny();
 		mycourse1.ifPresent(System.out::println);
 		System.out.println("-------------");
