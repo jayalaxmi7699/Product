@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Employee List</title>
+
+<style type="text/css">  
+table {  
+border-collapse: collapse;  
+width: 50%;  
+}  
+th, td {  
+text-align: left;  
+padding: 4px;  
+}  
+  
+tr:nth-child(even){background-color: #f2f2f2}  
+th {  
+background-color: #ad81c7;  
+color: white;  
+}  
+</style>  
+</h:head>
+<h:body>
+	<h2>Employee List</h2>
+	<h:form>
+	<h:dataTable value="#{employeeService.getAllEmployeeDetails()}" var='employeeInfo'>
+		<h:column>
+			<f:facet name="header">ID</f:facet>
+				#{employeeInfo.id}
+			</h:column>
+		<h:column>
+			<f:facet name="header">Name </f:facet>
+				#{employeeInfo.name}
+			</h:column>
+		<h:column>
+			<f:facet name="header">Contact No</f:facet>
+				#{employeeInfo.contactNo}
+			</h:column>
+			<h:column>
+		<f:facet name="header">Location</f:facet>
+				#{employeeInfo.address}
+			</h:column>
+			<h:column>  
+<f:facet name="header">Delete</f:facet>  
+<h:commandButton action = "#{employeeService.deleteEmployeeDetail(employeeInfo.id)}" value="Delete" class="btn btn-danger">  
+</h:commandButton>  
+</h:column>
+<h:column>  
+<f:facet name="header">Update</f:facet>  
+<h:commandButton action = "#{employeeService.getEmployeeDetailByID(employeeInfo.id)}" value="Update" class="btn btn-primary">  
+</h:commandButton>  
+</h:column>  
+		
+	</h:dataTable>
+	</h:form>
+	<a href="/EmployeeMS/faces/Views/AddEmployee.xhtml">Add new Employee </a> 
+ 
+</h:body>
+</html>
+
+
+
